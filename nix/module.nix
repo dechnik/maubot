@@ -7,8 +7,10 @@
 let
   cfg = config.services.maubot;
 
+  maubotCfg = {
+  };
   format = pkgs.formats.yaml { };
-  configFile = format.generate "config.yaml" cfg.settings;
+  configYaml = format.generate "config.yaml" maubotCfg;
 in
 {
   options.services.maubot = {
@@ -18,25 +20,13 @@ in
       default = self.packages.${pkgs.system}.default;
       description = "The package implementing maubot";
     };
-    settings = mkOption {
-      description = mdDoc ''
-      '';
-      default = { };
-      example = ''
-        {
-        }
-      '';
-      type = types.submodule {
-        freeformType = format.type;
-        options = {
-          theme = mkOption {
-            type = types.enum [ "light" "dark" "grey" "auto" ];
-            default = "light";
-            example = "dark";
-            description = mdDoc "The theme to display.";
-          };
-        };
-      };
+    username = mkOption { type = types.str; };
+    homeserver = mkOption { type = types.str; };
+    publicUrl = mkOption { type = types.str; };
+    secretYAML = mkOption { type = types.path; };
+    dataDir = mkOption {
+      type = types.path;
+      default = "/var/lib/maubot";
     };
   };
 }
