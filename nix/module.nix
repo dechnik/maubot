@@ -63,7 +63,7 @@ in
       default = "127.0.0.1";
     };
     serverPort = mkOption {
-      type = types.str;
+      type = types.int;
       default = 29316;
     };
     publicUrl = mkOption {
