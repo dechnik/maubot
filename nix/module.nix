@@ -92,7 +92,7 @@ in
       '';
       serviceConfig = {
         WorkingDirectory = cfg.dataDir;
-        ExecStart = "${maubot}/bin/maubot";
+        ExecStart = "${cfg.package}/bin/maubot";
         Restart = "on-failure";
         User = "maubot";
         Group = "maubot";
