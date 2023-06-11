@@ -86,6 +86,7 @@ in
       ];
       wantedBy = [ "multi-user.target" ];
       preStart = ''
+        mkdir -p ./plugins
         ${pkgs.yq-go}/bin/yq ea '. as $item ireduce ({}; . * $item )' \
           ${configYaml} ${cfg.secretYAML} > config.yaml
       '';
