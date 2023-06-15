@@ -15,6 +15,7 @@
       nixosModules = {
           default = import nix/module.nix self;
           alert = import nix/module-alert.nix self;
+          github = import nix/module-github.nix self;
       };
 
       packages = forAllSystems (system: {
