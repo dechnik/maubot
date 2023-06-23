@@ -16,6 +16,7 @@
           default = import nix/module.nix self;
           alert = import nix/module-alert.nix self;
           github = import nix/module-github.nix self;
+          rss = import nix/module-rss.nix self;
       };
 
       packages = forAllSystems (system: {
