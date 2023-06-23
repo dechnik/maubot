@@ -74,7 +74,7 @@ in
       default = 60;
     };
     adminUsers = mkOption {
-      type = types.list;
+      type = types.listOf types.str;
       default = [ "@user:example.com" ];
     };
     userName = mkOption {
