@@ -24,6 +24,7 @@ python3.pkgs.buildPythonPackage rec {
     click
     colorama
     CommonMark
+    feedparser
     jinja2
     mautrix
     packaging
